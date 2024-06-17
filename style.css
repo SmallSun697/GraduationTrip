@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+header {
+    background-color: #00a39b;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+}
+
+.main-page {
+    padding: 50px 8px 0 8px;
+}
