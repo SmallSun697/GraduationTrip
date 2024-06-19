@@ -2,25 +2,61 @@
     margin: 0;
 }
 
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
+h1 {
+    font-size: 5.5em;
 }
 
-h1 {
+h2 {
     font-size: 3em;
+    margin: 20px;
 }
 
 header {
     background-color: #00a39b;
-    height: 50px;
+    height: 0;
     width: 100%;
     display: flex;
     align-items: center;
     position: fixed;
+    overflow: hidden;
+    z-index: 10;
 }
 
 .main-page {
-    padding: 50px 8px 0 8px;
+    padding: 50px 10px 0 10px;
+}
+
+.title {
+    height: 850px;
+    width: 100%;
+    padding-bottom: 85px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: height 0.3s ease;
+}
+
+.card-setting {
+    position: relative;
+    opacity : 0;
+    margin: 20px 0 20px 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.card-setting img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.card-setting p {
+    position: absolute;
+    font-size: 15vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
