@@ -60,3 +60,10 @@ header {
     transform: translate(-50%, -50%);
     color: white;
 }
+
+footer {
+    text-align: center;
+    font-size: 5vw;
+    background-color: #00a39b;
+    color: white;
+}

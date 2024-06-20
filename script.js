@@ -38,6 +38,18 @@ window.addEventListener("scroll", function() {
     CardOpacity(4);
 });
 
+fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+        document.querySelector("header").innerHTML = data;
+    })
+
+fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+        document.querySelector("footer").innerHTML = data;
+    })
+
 function CardOpacity (number) {
     var cardNumber = document.getElementById("card" + number);
     if (!number) return;
@@ -49,5 +61,5 @@ function CardOpacity (number) {
 }
 
 function redirect (url) {
-    window.location.href = url;
+    window.location.href = window.location.href + url;
 }
