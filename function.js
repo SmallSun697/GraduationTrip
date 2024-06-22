@@ -42,7 +42,7 @@ function CardOpacity() {
         let cardButton = card.getBoundingClientRect().bottom;
         let distanceToBottom = window.innerHeight - cardButton;
         let gap = (distanceToBottom + cardHeight) / cardHeight;
-        let opacity = 0;
+        let opacity;
         if (gap > 0 && gap < 1 ) {
             opacity = gap;
         }
@@ -68,7 +68,7 @@ function CardDisplayLoading() {
         card.className = "content-card-setting card-show";
 
         const imgWrapper = document.createElement("div");
-        imgWrapper.className = "img-wrapper";
+        imgWrapper.className = "img-wrapper image";
 
         const img = document.createElement("img");
         img.src = `Images/CardContent/Low/${imageName}`;
