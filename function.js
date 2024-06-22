@@ -1,63 +1,5 @@
-function Redirect(url) {
-    window.location.href = window.location.href + url;
-}
-
-
-function TitleHeight() {
-    let Y = 1;
-    if (window.scrollY - Y >= 0.5 || window.scrollY - Y <= -0.5) {
-        Y = window.scrollY;
-    }
-    if (Y >= 340) {
-        document.querySelector(".title").style.height = "442px";
-    }
-    else {
-        document.querySelector(".title").style.height = 850 - Math.round(Y*1.2) + "px";
-    }
-}
-
-function HeaderHeight() {
-    let titleTextHeight = document.getElementById("titleText").getBoundingClientRect().top
-    let titleHeight = -1;
-    if (titleTextHeight - titleHeight >= 0.5 || titleTextHeight - titleHeight <= -0.5) {
-        titleHeight = titleTextHeight;
-    }
-    if (titleHeight < 0) {
-        if (titleHeight >= -60) {
-            document.querySelector('header').style.height = titleHeight*-1 + "px";
-        }
-        else {
-            document.querySelector('header').style.height = "60px"
-        }
-    }
-    else {
-        document.querySelector('header').style.height = "0px";
-    }
-}
-
-function CardOpacity() {
-    const cards = document.querySelectorAll('.card-show');
-    cards.forEach(card => {
-        let cardHeight = card.offsetHeight;
-        let cardButton = card.getBoundingClientRect().bottom;
-        let distanceToBottom = window.innerHeight - cardButton;
-        let gap = (distanceToBottom + cardHeight) / cardHeight;
-        let opacity;
-        if (gap > 0 && gap < 1 ) {
-            opacity = gap;
-        }
-        else if (gap >= 1) {
-            opacity = 1;
-        }
-        else {
-            opacity = 0;
-        }
-        card.style.opacity = opacity;
-    });
-}
-
 function CardDisplayLoading() {
-    const day = 2 //parseInt(window.location.href.slice(-1)) - 1;
+    const day = parseInt(window.location.href.slice(-1)) - 1;
     const quantity = database[day].length;
     const mainPage = document.querySelector(".main-page");
     for (let i = 0; i < quantity; i++) {
@@ -87,6 +29,50 @@ function CardDisplayLoading() {
     }
 }
 
+function CardOpacity() {
+    const cards = document.querySelectorAll('.card-show');
+    cards.forEach(card => {
+        let cardHeight = card.offsetHeight;
+        let cardButton = card.getBoundingClientRect().bottom;
+        let distanceToBottom = window.innerHeight - cardButton;
+        let gap = (distanceToBottom + cardHeight) / cardHeight;
+        let opacity;
+        if (gap > 0 && gap < 1 ) {
+            opacity = gap;
+        }
+        else if (gap >= 1) {
+            opacity = 1;
+        }
+        else {
+            opacity = 0;
+        }
+        card.style.opacity = opacity;
+    });
+}
+
+function HeaderHeight() {
+    let titleTextHeight = document.getElementById("titleText").getBoundingClientRect().top
+    let titleHeight = -1;
+    if (titleTextHeight - titleHeight >= 0.5 || titleTextHeight - titleHeight <= -0.5) {
+        titleHeight = titleTextHeight;
+    }
+    if (titleHeight < 0) {
+        if (titleHeight >= -60) {
+            document.querySelector('header').style.height = titleHeight*-1 + "px";
+        }
+        else {
+            document.querySelector('header').style.height = "60px"
+        }
+    }
+    else {
+        document.querySelector('header').style.height = "0px";
+    }
+}
+
+function Redirect(url) {
+    window.location.href = window.location.href + url;
+}
+
 function ShowFull(path) {
     const modal = document.getElementById("fullscreen-modal");
     const modalImg = document.getElementById("fullscreen-image");
@@ -99,7 +85,6 @@ function ShowFull(path) {
         modal.style.display = "none";
     }
 
-    // Add Hammer.js for touch gestures
     const hammer = new Hammer(modalImg);
     hammer.get('pinch').set({ enable: true });
     hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
@@ -127,4 +112,17 @@ function ShowFull(path) {
     hammer.on('pinchend', function() {
         lastScale = scale;
     });
+}
+
+function TitleHeight() {
+    let Y = 1;
+    if (window.scrollY - Y >= 0.5 || window.scrollY - Y <= -0.5) {
+        Y = window.scrollY;
+    }
+    if (Y >= 340) {
+        document.querySelector(".title").style.height = "442px";
+    }
+    else {
+        document.querySelector(".title").style.height = 850 - Math.round(Y*1.2) + "px";
+    }
 }
