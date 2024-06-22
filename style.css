@@ -37,19 +37,18 @@ header {
     transition: height 0.3s ease;
 }
 
+img {
+    height: calc((100vw - 20px) * 2 / 3);
+    width: auto;
+    object-fit: cover;
+}
+
 .card-setting {
     position: relative;
     opacity : 0;
     margin: 20px 0 20px 0;
     overflow: hidden;
     border-radius: 15px;
-}
-
-.card-setting img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
 }
 
 .card-setting p {
@@ -61,9 +60,69 @@ header {
     color: white;
 }
 
+.img-wrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: #00a39b30;
+    border-radius: 15px;
+}
+
+.content-card-setting {
+    opacity : 0;
+    overflow: hidden;
+    min-height: calc((100vw - 20px) * 2 / 3 + 80px);
+    padding:10px;
+    margin: 20px 0 20px 0;
+    box-shadow: 0 4px 8px #000000A0;
+}
+
+.content-card-setting p {
+    margin-top: 10px;
+    font-size: 5vw;
+}
+
 footer {
     text-align: center;
     font-size: 5vw;
     background-color: #00a39b;
     color: white;
+}
+
+
+
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw; /* 使用視窗的寬度 */
+    height: 100vh; /* 使用視窗的高度 */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.fullscreen-modal-content {
+    display: block;
+    margin: auto;
+    max-width: 500%;
+    max-height: 500%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }

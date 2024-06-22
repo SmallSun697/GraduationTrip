@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    TitleHeight();
-    HeaderHeight();
+    CardDisplayLoading();
     CardOpacity();
 });
 
 window.addEventListener("scroll", function() {
-    HeaderHeight();
-    TitleHeight();
     CardOpacity();
 });
