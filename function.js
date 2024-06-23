@@ -1,5 +1,5 @@
 function CardDisplayLoading() {
-    const day = parseInt(window.location.href.slice(-1)) - 1;
+    const day = 0;//parseInt(window.location.href.slice(-1)) - 1;
     const quantity = database[day].length;
     const mainPage = document.querySelector(".main-page");
     for (let i = 0; i < quantity; i++) {
@@ -39,11 +39,9 @@ function CardOpacity() {
         let opacity;
         if (gap > 0 && gap < 1 ) {
             opacity = gap;
-        }
-        else if (gap >= 1) {
+        } else if (gap >= 1) {
             opacity = 1;
-        }
-        else {
+        } else {
             opacity = 0;
         }
         card.style.opacity = opacity;
@@ -59,12 +57,10 @@ function HeaderHeight() {
     if (titleHeight < 0) {
         if (titleHeight >= -60) {
             document.querySelector('header').style.height = titleHeight*-1 + "px";
-        }
-        else {
+        } else {
             document.querySelector('header').style.height = "60px"
         }
-    }
-    else {
+    } else {
         document.querySelector('header').style.height = "0px";
     }
 }
@@ -80,9 +76,11 @@ function ShowFull(path) {
 
     modal.style.display = "block";
     modalImg.src = path;
+    document.body.style.overflow = "hidden";
 
     closeBtn.onclick = function() {
         modal.style.display = "none";
+        document.body.style.overflow = "";
     }
 
     const hammer = new Hammer(modalImg);
