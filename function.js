@@ -1,5 +1,5 @@
 function CardDisplayLoading() {
-    const day = 0;//parseInt(window.location.href.slice(-1)) - 1;
+    const day = parseInt(window.location.href.slice(-1)) - 1;
     const quantity = database[day].length;
     const mainPage = document.querySelector(".main-page");
     for (let i = 0; i < quantity; i++) {
